@@ -50,7 +50,7 @@ def load_data(data_path: str = '/kaggle/input/llm-classification-finetuning/') -
 
 __version__ = "0.1.0"
 __author__ = "Tamanna Sharma"
-__email__ = "tamanna.sharma@example.com"
+__email__ = "ts825391@gmail.com"
 
 if __name__ == "__main__":
     print("🔬 Kaggle LLM Classification Competition - Utility Functions")

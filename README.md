@@ -155,9 +155,10 @@ jupyter notebook notebooks/notebook-tamanna-f8b47a360f.ipynb
 
 | Date       | Submission | Approach               | Log Loss | Status      |
 | ---------- | ---------- | ---------------------- | -------- | ----------- |
-| 2026-02-11 | 1          | Length-based heuristic | TBD      | ⏳ Submitted |
+| 2026-02-11 | 1          | Length-based heuristic | 1.10825  | ✅ Submitted |
 
 ---
+
 
 ## Next Steps
 

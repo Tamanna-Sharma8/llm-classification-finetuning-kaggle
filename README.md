@@ -1,87 +1,197 @@
-# 🏆 Kaggle LLM Classification Competition
+# Kaggle LLM Classification Competition
 
-<div align="center">
-  
-![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-1.24-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-[![Last Commit](https://img.shields.io/github/last-commit/tamannasharma/kaggle-llm-competition)](https://github.com/tamannasharma/kaggle-llm-competition)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen)]()
-[![Kaggle Score](https://img.shields.io/badge/Score-1.10825-orange)]()
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat&logo=kaggle&logoColor=white)](https://www.kaggle.com/tamannasharma8)
+[![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat&logo=python)](https://python.org)
+[![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=flat&logo=pandas)](https://pandas.pydata.org)
+[![NumPy](https://img.shields.io/badge/NumPy-1.24-013243?style=flat&logo=numpy)](https://numpy.org)
+[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter)](https://jupyter.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)]()
+[![Last Commit](https://img.shields.io/github/last-commit/Tamanna-Sharma8/kaggle-llm-competition?style=flat)](https://github.com/Tamanna-Sharma8/kaggle-llm-competition)
 
 **Predicting Human Preferences in LLM Conversations**  
 *A Kaggle Getting Started Competition*
 
-</div>
+---
+
+## Table of Contents
+- [Competition Overview](#competition-overview)
+- [My Approach](#my-approach)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Next Steps](#next-steps)
+- [About Me](#about-me)
+- [Connect](#connect)
 
 ---
 
-## 📋 Table of Contents
-- [Competition Overview](#-competition-overview)
-- [My Approach](#-my-approach)
-- [Project Structure](#-project-structure)
-- [Installation & Setup](#-installation--setup)
-- [Usage Guide](#-usage-guide)
-- [Results](#-results)
-- [Next Steps](#-next-steps)
-- [About Me](#-about-me)
-- [Connect](#-connect)
-
----
-
-## 🎯 Competition Overview
+## Competition Overview
 
 **Competition:** [LLM Classification Finetuning](https://www.kaggle.com/competitions/llm-classification-finetuning)  
-**Goal:** Predict which chatbot response users prefer in head-to-head battles  
-**Dataset:** Chatbot Arena conversations between multiple LLMs  
+**Goal:** Predict which chatbot response users prefer  
+**Dataset:** Chatbot Arena conversations  
 **Metric:** Log Loss  
-**Type:** Getting Started Competition (Rolling Leaderboard)
+**Type:** Getting Started Competition
 
-### The Challenge
-Large Language Models (LLMs) are rapidly entering our lives, but ensuring their responses resonate with users is critical. This competition uses real-world data from Chatbot Arena, where users chat with two anonymous LLMs and choose the answer they prefer. The task is to predict which response a user will prefer.
-
-This challenge aligns with **Reinforcement Learning from Human Feedback (RLHF)** and **reward modeling** - critical components in modern LLM development.
+Large Language Models (LLMs) are rapidly entering our lives, but ensuring their responses resonate with users is critical. This competition uses real-world data from Chatbot Arena, where users chat with two anonymous LLMs and choose the answer they prefer.
 
 ---
 
-## 💡 My Approach
+## My Approach
 
-### Background & Relevance
-This competition leverages my experience in **LLM evaluation**, where I:
-- Designed adversarial SFT datasets for QWEN and NeMo models
+### Background
+This competition leverages my **LLM evaluation experience** where I:
+- Designed adversarial SFT datasets for multiple LLMs
 - Built 18+ rule-based validator judges
-- Achieved 50%+ validator failure rates exposing model weaknesses
-- Documented systematic model failure modes
+- Achieved 50%+ validator failure rates
 
-### Submission 1: Baseline Model (February 2026)
+### Submission 1: Baseline Model (Feb 2026)
 
 | Metric | Detail |
 |--------|--------|
 | **Method** | Length-based heuristic |
 | **Logic** | Longer responses are preferred more often |
-| **Features** | Response length comparison |
-| **Score** | 1.10825 |
-| **Rank** | TBD |
-| **Notebook** | [`01_first_submission.ipynb`](notebooks/01_first_submission.ipynb) |
+| **Score** | *Pending* |
+| **Notebook** | [`notebook-tamanna-f8b47a360f.ipynb`](notebooks/notebook-tamanna-f8b47a360f.ipynb) |
 
-#### Implementation Example
 ```python
-def get_length_based_probabilities(response_a, response_b):
-    """
-    Simple heuristic: longer response gets higher probability.
-    
-    Returns probabilities [model_a_win, model_b_win, tie].
-    """
+def predict_preference(response_a, response_b):
     len_a = len(str(response_a))
     len_b = len(str(response_b))
     
     if len_a > len_b:
-        return [0.6, 0.2, 0.2]  # Model A likely preferred
+        return [0.6, 0.2, 0.2]  # Model A wins
     elif len_b > len_a:
-        return [0.2, 0.6, 0.2]  # Model B likely preferred
+        return [0.2, 0.6, 0.2]  # Model B wins
     else:
-        return [0.33, 0.33, 0.34]  # Tie if equal length
+        return [0.33, 0.33, 0.34]  # Tie
+```
+
+## Project Structure
+
+<pre>
+kaggle-llm-competition/
+│
+├── notebooks/
+│   └── notebook-tamanna-f8b47a360f.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── features.py
+│   └── utils.py
+│
+├── submissions/
+│   └── first_submission.csv
+│
+├── data/
+│   └── README.md
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
+</pre>
+
+### Directory Details
+
+| Directory        | Purpose                            |
+| ---------------- | ---------------------------------- |
+| **notebooks/**   | Jupyter notebooks with experiments |
+| **src/**         | Reusable Python modules            |
+| **submissions/** | Kaggle submission files            |
+| **data/**        | Data download instructions         |
+
+---
+
+## Installation
+
+```bash
+# Clone repository
+git clone https://github.com/Tamanna-Sharma8/kaggle-llm-competition.git
+cd kaggle-llm-competition
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Data Download
+
+**Option 1: Kaggle API (Recommended)**
+
+```bash
+pip install kaggle
+kaggle competitions download -c llm-classification-finetuning
+unzip llm-classification-finetuning.zip -d data/
+```
+
+**Option 2: Manual Download**
+
+1. Visit: [https://www.kaggle.com/competitions/llm-classification-finetuning/data](https://www.kaggle.com/competitions/llm-classification-finetuning/data)
+2. Click "Download All"
+3. Unzip files into the `data/` folder
+
+---
+
+## Usage
+
+**On Kaggle:**
+
+1. Go to [Competition Page](https://www.kaggle.com/competitions/llm-classification-finetuning)
+2. Click "Code" → "New Notebook"
+3. Enable GPU: Right sidebar → Accelerator → GPU T4 x2
+4. Copy code from [`notebooks/notebook-tamanna-f8b47a360f.ipynb`](notebooks/notebook-tamanna-f8b47a360f.ipynb)
+5. Run all cells → Commit → Submit
+
+**Locally:**
+
+```bash
+jupyter notebook notebooks/notebook-tamanna-f8b47a360f.ipynb
+```
+
+---
+
+## Results
+
+| Date       | Submission | Approach               | Log Loss | Status      |
+| ---------- | ---------- | ---------------------- | -------- | ----------- |
+| 2026-02-11 | 1          | Length-based heuristic | TBD      | ⏳ Submitted |
+
+---
+
+## Next Steps
+
+* [ ] Get first Kaggle score
+* [ ] Add response quality features (bullet points, code blocks, disclaimers)
+* [ ] Try Logistic Regression with TF-IDF
+* [ ] Fine-tune BERT-based model
+
+---
+
+## About Me
+
+**Tamanna Sharma**
+Fresher | Aspiring Data Scientist & ML/LLM Enthusiast
+
+**Skills & Projects:**
+
+* Python, Pandas, NumPy, Jupyter
+* Small ML & NLP projects
+* Kaggle competition participation
+
+---
+
+## Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/tamanna-sharma-7a529225a)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat\&logo=github\&logoColor=white)](https://github.com/Tamanna-Sharma8)
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat\&logo=kaggle\&logoColor=white)](https://www.kaggle.com/tamannasharma8)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=flat\&logo=gmail\&logoColor=white)](mailto:ts825391@gmail.com)
+
+---
+
+*Last updated: February 11, 2026*
+
+```
+
+

@@ -9,7 +9,7 @@ Date: February 2026
 
 __version__ = "0.1.0"
 __author__ = "Tamanna Sharma"
-__email__ = "tamanna.sharma@example.com"  # replace with your email if you want
+__email__ = "ts825391@gmail.com"  
 
 # Import main functions for easy access
 from .features import (
